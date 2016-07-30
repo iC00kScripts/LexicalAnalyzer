@@ -6,4 +6,8 @@ public class Word extends Token{
 		super(t);
 		lexeme = new String(s);
 	}
+
+	public void PrintWord(){
+		System.out.println(super.tag+" - "+lexeme);
+	}
 }

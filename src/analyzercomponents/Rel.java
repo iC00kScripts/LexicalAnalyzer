@@ -6,4 +6,7 @@ public class Rel extends Token{
 		super(Tag.REL);
 		lexeme = new String(s);
 	}
+	public void PrintRelOp(){
+		System.out.println(Tag.REL+" - "+lexeme);
+	}
 }

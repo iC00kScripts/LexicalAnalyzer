@@ -1,10 +1,10 @@
 package tester;
 
 
-import analyzercomponents.Lexer;
-import analyzercomponents.SyntaxException;
+import analyzercomponents.*;
 
 import java.io.*;
+
 
 /**
  * Created by unorthodox on 28/07/16.
@@ -14,20 +14,30 @@ import java.io.*;
  */
 public class LexicalSimulator {
     public static void main(String []args){
-        InputStream fileInputStream=null;
+        //Scanner input= new Scanner(System.in);
+        //System.out.println("Enter the code snippet: ");
+        //String myCode= input.nextLine();
+        InputStream is=null;
+        Word word;
+        Rel relOp;
 
         File file = new File("/home/unorthodox/IdeaProjects/LexicalAnalyzer/out/production/LexicalAnalyzer/tester/inputfile");
 
-        try{
-             fileInputStream= new FileInputStream(file);
-            Lexer lexer= new Lexer(fileInputStream);
+       try{
+            is= new FileInputStream(file);
+           //InputStream is = new ByteArrayInputStream(myCode.getBytes("UTF-8"));
+           Lexer lexer= new Lexer(is);
             try {
-                lexer.scan();
-            } catch (SyntaxException|IOException e){
+                while(true)
+                    lexer.scan(); //scan the input and extract tokens - word, relational operators, comments
+
+
+            } catch (SyntaxException|IOException |ClassCastException e){
                 e.printStackTrace();
             }
         } catch (FileNotFoundException e){
             e.printStackTrace();
         }
+
     }
 }
