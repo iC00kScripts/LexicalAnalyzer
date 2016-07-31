@@ -1,5 +1,7 @@
-if(i>=2){
-    /*This is a program*/
 
-    print "True";
+if(i != 200){
+
+    return true;
 }
+
+/*This is a program*/
